@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   
   
-  <title>combinations and permutation | ljz&#39;s blog</title>
+  <title>Linux command | ljz&#39;s blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,15 +17,15 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="Combinations 12345678910111213141516171819202122void GospersHack(int k, int n)&amp;#123;    int set &#x3D; (1 &lt;&lt; k) - 1;    int limit &#x3D; (1 &lt;&lt; n);    while (set &lt; limit)    &amp;#123;        &#x2F;&#x2F;DoStu">
+  <meta name="description" content="使用SSH连接Linux服务器： 12ssh username@Linuxaddress输入密码：     本机与Linux上传下载文件  从Linux服务器下载文件（文件夹）到本机 12scp username@Linuxaddress:&#x2F;home&#x2F;hhn&#x2F;code C:\Users\Administrator\Desktop输入密码：  从本机上传文件（文件夹）到Linux服务器 12scp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="combinations and permutation">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/04/combinations-and-permutation/index.html">
+<meta property="og:title" content="Linux command">
+<meta property="og:url" content="https://pure-master.github.io/2024/04/04/Linux-command/index.html">
 <meta property="og:site_name" content="ljz&#39;s blog">
-<meta property="og:description" content="Combinations 12345678910111213141516171819202122void GospersHack(int k, int n)&amp;#123;    int set &#x3D; (1 &lt;&lt; k) - 1;    int limit &#x3D; (1 &lt;&lt; n);    while (set &lt; limit)    &amp;#123;        &#x2F;&#x2F;DoStu">
+<meta property="og:description" content="使用SSH连接Linux服务器： 12ssh username@Linuxaddress输入密码：     本机与Linux上传下载文件  从Linux服务器下载文件（文件夹）到本机 12scp username@Linuxaddress:&#x2F;home&#x2F;hhn&#x2F;code C:\Users\Administrator\Desktop输入密码：  从本机上传文件（文件夹）到Linux服务器 12scp">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-04-04T10:43:27.000Z">
-<meta property="article:modified_time" content="2024-04-04T10:45:16.132Z">
+<meta property="article:published_time" content="2024-04-04T14:22:12.000Z">
+<meta property="article:modified_time" content="2024-04-04T14:43:57.630Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta name="twitter:card" content="summary">
   
@@ -121,15 +121,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/04/combinations-and-permutation/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/04/Linux-command/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">combinations and permutation</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Linux command</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-04T10:43:27.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-04</time></li>
+                <li><time datetime="2024-04-04T14:22:12.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-04</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -138,7 +138,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1298
+                            1174
                         
                         字
                     </li>
@@ -150,32 +150,79 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1712227516132"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712241837630"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
             <hr />
             <div itemprop="articleBody"><ul>
-<li><p>Combinations</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">GospersHack</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> set = (<span class="number">1</span> &lt;&lt; k) - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> limit = (<span class="number">1</span> &lt;&lt; n);</span><br><span class="line">    <span class="keyword">while</span> (set &lt; limit)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//DoStuff(set);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Gosper&#x27;s hack:</span></span><br><span class="line">        <span class="type">int</span> c = set &amp; -set;</span><br><span class="line">        <span class="type">int</span> r = set + c;</span><br><span class="line">        set = (((r ^ set) &gt;&gt; <span class="number">2</span>) / c) | r;</span><br><span class="line">        <span class="comment">//set = ((r ^ set) &gt;&gt; __builtin_ctz(c) + 2) | r;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">GospersHack</span>(<span class="number">3</span>, <span class="number">6</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
+<li><p>使用SSH连接Linux服务器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh username@Linuxaddress</span><br><span class="line">输入密码：</span><br></pre></td></tr></table></figure>
 
 
 
 </li>
-<li><p>Permutations</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">generate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; a, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : a) &#123;</span><br><span class="line">            cout &lt;&lt; num &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="built_in">generate</span>(a, n - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (i &lt; n - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(a[i], a[n - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">swap</span>(a[<span class="number">0</span>], a[n - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; nums = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line">    <span class="built_in">generate</span>(nums, nums.<span class="built_in">size</span>());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>本机与Linux上传下载文件</p>
+<ul>
+<li><p>从Linux服务器下载文件（文件夹）到本机</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp username@Linuxaddress:/home/hhn/code C:\Users\Administrator\Desktop</span><br><span class="line">输入密码：</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从本机上传文件（文件夹）到Linux服务器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r C:\Users\Administrator\Desktop  		    username@Linuxaddress:/home/hhn/code </span><br><span class="line">输入密码：</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Linux 开放端口</p>
+<ul>
+<li><p>开启防火墙<br><code> systemctl start firewalld</code></p>
+</li>
+<li><p>开放指定端口<br><code>firewall-cmd --zone=public --add-port=8848/tcp --permanent</code><br><code>--zone</code> 作用域<br><code>-add-port=1935/tcp</code> 添加端口，格式为：端口&#x2F;通讯协议<br><code>--remove-port=1935/tcp</code> 关闭指定端口<br><code>--permanent</code> 永久生效，没有此参数重启后失效 </p>
+</li>
+<li><p>查看指定端口<br><code>firewall-cmd --list-ports	</code></p>
+</li>
+<li><p>重启防火墙<br><code>firewall-cmd --reload</code></p>
+</li>
+<li><p>查看端口号<br><code>netstat -ntlp</code> 查看当前所有tcp端口<br><code>netstat -ntulp |grep 8848</code>   查看所有8848端口使用情况 </p>
+</li>
+<li><p>查询进程端口占用</p>
+<p><code>ps -ef | grep [进程名]</code></p>
+</li>
+</ul>
+</li>
+<li><p>Linux 操作文件</p>
+<ul>
+<li><p><code>rm -rf 目录名</code>           删除目录连同目录下所有文件</p>
+</li>
+<li><p><code>.tar.gz</code> 和 <code>.tgz</code></p>
+<ul>
+<li>解压：<code>tar -zxvf FileName.tar.gz</code></li>
+<li>压缩：<code>tar -zcvf FileName.tar.gz DirName</code></li>
+</ul>
+</li>
+<li><p><code>mkdir [-p] dirName</code><br><code>-p</code> 确保目录名称存在，不存在的就建一个。</p>
+</li>
+<li><p><code>mv file1 /tmp </code>移动到指定目录</p>
+</li>
+<li><p><code>mv file1 file2 </code>重命名文件</p>
+</li>
+<li><p><code>mv dir1 dir2 </code>移动目录dir1到dir2</p>
+</li>
+<li><p><code>mv file1 file2 dir1</code> 移动多个文件到目标目录</p>
+</li>
+<li><p><code>mv *.pdf ~/Documents </code></p>
+</li>
+<li><p><code>cp source.txt destination.txt </code>        复制文件到另一个位置</p>
+</li>
+<li><p><code>cp -r source_dir destination_dir</code>     递归复制整个目录</p>
+</li>
+</ul>
+</li>
+<li><p>IPv4 转发</p>
+<ul>
+<li><code>sysctl net.ipv4.ip_forward </code>   查看虚拟机是否开启ipv4转发</li>
+<li><code>sysctl -w net.ipv4.ip_forward=1</code> 开启ipv4转发</li>
+</ul>
+</li>
 </ul>
 </div>
         </div>
@@ -230,7 +277,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/04/combinations-and-permutation/",
+                text: "https://pure-master.github.io/2024/04/04/Linux-command/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -242,11 +289,19 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/04/combinations-and-permutation/";
-            const title         = "「combinations and permutation」";
+            const hostUrl       = "https://pure-master.github.io/2024/04/04/Linux-command/";
+            const title         = "「Linux command」";
             const excerpt       = `
-Combinations
-12345678910111213141516171819202122void GospersHack(int k, int n)&#123;    int set = (1 &lt;&lt; k) - 1...`;
+使用SSH连接Linux服务器：
+12ssh username@Linuxaddress输入密码：
+
+
+
+
+本机与Linux上传下载文件
+
+从Linux服务器下载文件（文件夹）到本机
+12scp username@Linuxaddr...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -268,7 +323,7 @@ Combinations
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-04T10:45:16.132Z" itemprop="dateModified">最后编辑：2024-04-04</time>
+                    <time datetime="2024-04-04T14:43:57.630Z" itemprop="dateModified">最后编辑：2024-04-04</time>
                 </div>
             </div>
         </footer>
@@ -276,10 +331,10 @@ Combinations
     
         <nav class="navigation post-navigation clearfix" role="navigation">
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Linux command" href="/2024/04/04/Linux-command/">下一篇 &gt;</a>
+            <div class="nav-previous clearfix">
+                <a title=" combinations and permutation" href="/2024/04/04/combinations-and-permutation/">&lt; 上一篇</a>
             </div>
+            
             
         </nav>
     
