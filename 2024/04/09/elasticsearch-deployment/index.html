@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   
   
-  <title>Best Time to Buy and Sell Stock IV | ljz&#39;s Blog</title>
+  <title>elasticsearch deployment | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,15 +17,15 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="DescriptionYou are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an integer k. Find the maximum profit you can achieve. You may complete at most k tra">
+  <meta name="description" content="Run ElasticSearchCreate a new docker network1docker network create es-net      Pull the Elasticsearch Docker image1docker pull elasticsearch:8.13.0      Start an Elasticsearch container123456789101112">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Best Time to Buy and Sell Stock IV">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/index.html">
+<meta property="og:title" content="elasticsearch deployment">
+<meta property="og:url" content="https://pure-master.github.io/2024/04/09/elasticsearch-deployment/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="DescriptionYou are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an integer k. Find the maximum profit you can achieve. You may complete at most k tra">
+<meta property="og:description" content="Run ElasticSearchCreate a new docker network1docker network create es-net      Pull the Elasticsearch Docker image1docker pull elasticsearch:8.13.0      Start an Elasticsearch container123456789101112">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-04-08T09:16:58.000Z">
-<meta property="article:modified_time" content="2024-04-08T13:18:16.029Z">
+<meta property="article:published_time" content="2024-04-09T10:42:26.000Z">
+<meta property="article:modified_time" content="2024-04-09T13:10:07.014Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta name="twitter:card" content="summary">
   
@@ -193,15 +193,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/09/elasticsearch-deployment/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Best Time to Buy and Sell Stock IV</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">elasticsearch deployment</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-08T09:16:58.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-08</time></li>
+                <li><time datetime="2024-04-09T10:42:26.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-09</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -210,7 +210,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.58K
+                            ~2.95K
                         
                         字
                     </li>
@@ -222,36 +222,100 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1712582296029"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712668207014"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Run-ElasticSearch"><span class="toc-number">1.</span> <span class="toc-text">Run ElasticSearch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-new-docker-network"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new docker network</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pull-the-Elasticsearch-Docker-image"><span class="toc-number">1.2.</span> <span class="toc-text">Pull the Elasticsearch Docker image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-an-Elasticsearch-container"><span class="toc-number">1.3.</span> <span class="toc-text">Start an Elasticsearch container</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copy-the-generated-elastic-password-and-enrollment-token"><span class="toc-number">1.4.</span> <span class="toc-text">Copy the generated elastic password and enrollment token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copy-the-http-ca-crt-SSL-certificate-from-the-container-to-your-local-machine"><span class="toc-number">1.5.</span> <span class="toc-text">Copy the http_ca.crt SSL certificate from the container to your local machine</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Make-a-REST-API-call-to-Elasticsearch-to-ensure-the-Elasticsearch-container-is-running"><span class="toc-number">1.6.</span> <span class="toc-text">Make a REST API call to Elasticsearch to ensure the Elasticsearch container is running</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Run-Kibana"><span class="toc-number">2.</span> <span class="toc-text">Run Kibana</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Pull-the-Kibana-Docker-image"><span class="toc-number">2.1.</span> <span class="toc-text">Pull the Kibana Docker image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-a-Kibana-container"><span class="toc-number">2.2.</span> <span class="toc-text">Start a Kibana container</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enter-the-enrollment-token"><span class="toc-number">2.3.</span> <span class="toc-text">Enter the enrollment token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-in-to-Kibana"><span class="toc-number">2.4.</span> <span class="toc-text">Log in to Kibana</span></a></li></ol></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an integer array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>ith</code> day, and an integer <code>k</code>.</p>
-<p>Find the maximum profit you can achieve. You may complete at most <code>k</code> transactions: i.e. you may buy at most <code>k</code> times and sell at most <code>k</code> times.</p>
-<p><strong>Note:</strong> You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: k = 2, prices = [2,4,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: Buy on day 1 (price = 2) and sell on day 2 (price = 4), profit = 4-2 = 2.</span><br></pre></td></tr></table></figure>
+            <div itemprop="articleBody"><h1 id="Run-ElasticSearch"><a href="#Run-ElasticSearch" class="headerlink" title="Run ElasticSearch"></a>Run ElasticSearch</h1><h2 id="Create-a-new-docker-network"><a href="#Create-a-new-docker-network" class="headerlink" title="Create a new docker network"></a>Create a new docker network</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create es-net</span><br></pre></td></tr></table></figure>
 
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: k = 2, prices = [3,2,6,5,0,3]</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4. Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.</span><br></pre></td></tr></table></figure>
 
-<p><strong>Constraints:</strong></p>
+
+
+
+<h2 id="Pull-the-Elasticsearch-Docker-image"><a href="#Pull-the-Elasticsearch-Docker-image" class="headerlink" title="Pull the Elasticsearch Docker image"></a>Pull the Elasticsearch Docker image</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull elasticsearch:8.13.0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Start-an-Elasticsearch-container"><a href="#Start-an-Elasticsearch-container" class="headerlink" title="Start an Elasticsearch container"></a>Start an Elasticsearch container</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name es \</span><br><span class="line">-e &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot; \</span><br><span class="line">-e &quot;discovery.type=single-node&quot; \</span><br><span class="line">-v es-data:/usr/share/elasticsearch/data \</span><br><span class="line">-v es-plugins:/usr/share/elasticsearch/plugins \</span><br><span class="line">--privileged \</span><br><span class="line">--net es-net \</span><br><span class="line">-p 9200:9200 \</span><br><span class="line">-p 9300:9300 \</span><br><span class="line">-it \</span><br><span class="line">elasticsearch:8.13.0</span><br></pre></td></tr></table></figure>
+
+<p>命令解释：</p>
 <ul>
-<li><code>1 &lt;= k &lt;= 100</code></li>
-<li><code>1 &lt;= prices.length &lt;= 1000</code></li>
-<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
+<li><code>-e &quot;cluster.name=es-docker-cluster&quot;</code>：设置集群名称</li>
+<li><code>-e &quot;http.host=0.0.0.0&quot;</code>：监听的地址，可以外网访问</li>
+<li><code>-e &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;</code>：内存大小</li>
+<li><code>-e &quot;discovery.type=single-node&quot;</code>：非集群模式</li>
+<li><code>-v es-data:/usr/share/elasticsearch/data</code>：挂载逻辑卷，绑定es的数据目录</li>
+<li><code>-v es-logs:/usr/share/elasticsearch/logs</code>：挂载逻辑卷，绑定es的日志目录</li>
+<li><code>-v es-plugins:/usr/share/elasticsearch/plugins</code>：挂载逻辑卷，绑定es的插件目录</li>
+<li><code>--privileged</code>：授予逻辑卷访问权</li>
+<li><code>--network es-net</code> ：加入一个名为es-net的网络中</li>
+<li><code>-p 9200:9200</code>：端口映射配置</li>
+<li><strong>9200</strong>: Elasticsearch HTTP API 端口，用于客户端与 Elasticsearch 集群进行通信。这是与 Elasticsearch 进行索引、搜索等操作的主要端口。</li>
+<li><strong>9300</strong>: Elasticsearch 内部节点之间的通信端口。这个端口用于节点之间的集群通信，用于复制索引数据、选举主节点等集群操作。</li>
+<li><code>-i</code>：表示以交互模式运行容器，即使没有终端连接也能保持容器的标准输入 (stdin) 打开。</li>
+<li><code>-t</code>：分配一个伪终端 (pseudo-TTY)，这样可以在容器内部通过命令行与用户进行交互。</li>
 </ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>思路同<a href="/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/" title="Best Time to Buy and Sell Stock III">Best Time to Buy and Sell Stock III</a></p>
+<h2 id="Copy-the-generated-elastic-password-and-enrollment-token"><a href="#Copy-the-generated-elastic-password-and-enrollment-token" class="headerlink" title="Copy the generated elastic password and enrollment token"></a>Copy the generated <code>elastic</code> password and enrollment token</h2><p>These credentials are only shown when you start Elasticsearch for the first time. You can regenerate the credentials using the following commands.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it es /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic</span><br><span class="line">docker exec -it es /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>-s kibana</code> 表示为 Kibana 生成 Enrollment Token</p>
+</li>
+<li><p><code>-u elastic</code>表示使用用户名 <code>elastic</code> 进行操作。</p>
+</li>
+</ul>
+<p>You can store the <code>elastic</code> password as an environment variable in your shell.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ELASTIC_PASSWORD=&quot;your_password&quot;</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(<span class="type">int</span> k, vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=prices.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(<span class="number">2</span>*k,-prices[<span class="number">0</span>])</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">2</span>*k; i += <span class="number">2</span>) &#123;</span><br><span class="line">            dp[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp[<span class="number">0</span>]=<span class="built_in">max</span>(dp[<span class="number">0</span>],-prices[i]);</span><br><span class="line">            dp[<span class="number">1</span>]=<span class="built_in">max</span>(dp[<span class="number">1</span>],dp[<span class="number">0</span>]+prices[i]);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;k;j++)&#123;</span><br><span class="line">                <span class="type">int</span> index=<span class="number">2</span>*j;</span><br><span class="line">                dp[index]=<span class="built_in">max</span>(dp[index],dp[index<span class="number">-1</span>]-prices[i]);</span><br><span class="line">                dp[index+<span class="number">1</span>]=<span class="built_in">max</span>(dp[index+<span class="number">1</span>],dp[index]+prices[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">2</span>*k<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Copy-the-http-ca-crt-SSL-certificate-from-the-container-to-your-local-machine"><a href="#Copy-the-http-ca-crt-SSL-certificate-from-the-container-to-your-local-machine" class="headerlink" title="Copy the http_ca.crt SSL certificate from the container to your local machine"></a>Copy the <code>http_ca.crt</code> SSL certificate from the container to your local machine</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp es:/usr/share/elasticsearch/config/certs/http_ca.crt .</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Make-a-REST-API-call-to-Elasticsearch-to-ensure-the-Elasticsearch-container-is-running"><a href="#Make-a-REST-API-call-to-Elasticsearch-to-ensure-the-Elasticsearch-container-is-running" class="headerlink" title="Make a REST API call to Elasticsearch to ensure the Elasticsearch container is running"></a>Make a REST API call to Elasticsearch to ensure the Elasticsearch container is running</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --cacert http_ca.crt -u elastic:$ELASTIC_PASSWORD https://localhost:9200</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Run-Kibana"><a href="#Run-Kibana" class="headerlink" title="Run Kibana"></a>Run Kibana</h1><h2 id="Pull-the-Kibana-Docker-image"><a href="#Pull-the-Kibana-Docker-image" class="headerlink" title="Pull the Kibana Docker image"></a>Pull the Kibana Docker image</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull kibana:8.13.0</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Start-a-Kibana-container"><a href="#Start-a-Kibana-container" class="headerlink" title="Start a Kibana container"></a>Start a Kibana container</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name kibana \</span><br><span class="line">-e ELASTICSEARCH_HOSTS=http://es:9200 \</span><br><span class="line">--net es-net \</span><br><span class="line">-p 5601:5601 \</span><br><span class="line">kibana:8.13.0</span><br></pre></td></tr></table></figure>
+
+
+
+<p>When Kibana starts, it outputs a unique generated link to the terminal. To access Kibana, open this link in a web browser</p>
+<h2 id="Enter-the-enrollment-token"><a href="#Enter-the-enrollment-token" class="headerlink" title="Enter the enrollment token"></a>Enter the enrollment token</h2><p>In your browser, enter the enrollment token that was generated when you started Elasticsearch.</p>
+<p>To regenerate the token, run:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it es /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="Log-in-to-Kibana"><a href="#Log-in-to-Kibana" class="headerlink" title="Log in to Kibana"></a>Log in to Kibana</h2><p>Log in to Kibana as the <code>elastic</code> user with the password that was generated when you started Elasticsearch.</p>
+<p>To regenerate the password, run:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it es /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
 </div>
         </div>
         
@@ -305,7 +369,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/",
+                text: "https://pure-master.github.io/2024/04/09/elasticsearch-deployment/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -317,9 +381,15 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/";
-            const title         = "「Best Time to Buy and Sell Stock IV」";
-            const excerpt       = `DescriptionYou are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an...`;
+            const hostUrl       = "https://pure-master.github.io/2024/04/09/elasticsearch-deployment/";
+            const title         = "「elasticsearch deployment」";
+            const excerpt       = `Run ElasticSearchCreate a new docker network1docker network create es-net
+
+
+
+
+
+Pull the Elasticsearch Docker image1do...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -341,7 +411,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-08T13:18:16.029Z" itemprop="dateModified">最后编辑：2024-04-08</time>
+                    <time datetime="2024-04-09T13:10:07.014Z" itemprop="dateModified">最后编辑：2024-04-09</time>
                 </div>
             </div>
         </footer>
@@ -350,12 +420,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Best Time to Buy and Sell Stock III" href="/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/">&lt; 上一篇</a>
+                <a title=" 动态规划背包问题" href="/2024/04/09/动态规划背包问题/">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" 动态规划背包问题" href="/2024/04/09/动态规划背包问题/">下一篇 &gt;</a>
+                <a title=" docker command" href="/2024/04/09/docker-command/">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -424,7 +494,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Run-ElasticSearch"><span class="toc-text">Run ElasticSearch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-new-docker-network"><span class="toc-text">Create a new docker network</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pull-the-Elasticsearch-Docker-image"><span class="toc-text">Pull the Elasticsearch Docker image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-an-Elasticsearch-container"><span class="toc-text">Start an Elasticsearch container</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copy-the-generated-elastic-password-and-enrollment-token"><span class="toc-text">Copy the generated elastic password and enrollment token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copy-the-http-ca-crt-SSL-certificate-from-the-container-to-your-local-machine"><span class="toc-text">Copy the http_ca.crt SSL certificate from the container to your local machine</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Make-a-REST-API-call-to-Elasticsearch-to-ensure-the-Elasticsearch-container-is-running"><span class="toc-text">Make a REST API call to Elasticsearch to ensure the Elasticsearch container is running</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Run-Kibana"><span class="toc-text">Run Kibana</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Pull-the-Kibana-Docker-image"><span class="toc-text">Pull the Kibana Docker image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-a-Kibana-container"><span class="toc-text">Start a Kibana container</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enter-the-enrollment-token"><span class="toc-text">Enter the enrollment token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-in-to-Kibana"><span class="toc-text">Log in to Kibana</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
