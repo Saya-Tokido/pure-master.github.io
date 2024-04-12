@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>docker command | ljz&#39;s Blog</title>
+  <title>Best Time to Buy and Sell Stock with Cooldown | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,16 +17,16 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="启动docker可以通过以下命令启动docker的守护程序 1systemctl start docker   systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 例如docker的服务文件为docker.service 配置切换国内镜像 1234567sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json">
+  <meta name="description" content="DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day. Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e.,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker command">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/09/docker-command/index.html">
+<meta property="og:title" content="Best Time to Buy and Sell Stock with Cooldown">
+<meta property="og:url" content="https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="启动docker可以通过以下命令启动docker的守护程序 1systemctl start docker   systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 例如docker的服务文件为docker.service 配置切换国内镜像 1234567sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json">
+<meta property="og:description" content="DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day. Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e.,">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-09T13:01:21.000Z">
-<meta property="article:modified_time" content="2024-04-10T09:59:07.972Z">
+<meta property="article:published_time" content="2024-04-12T09:54:10.000Z">
+<meta property="article:modified_time" content="2024-04-12T15:10:40.687Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
@@ -195,15 +195,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/09/docker-command/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">docker command</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Best Time to Buy and Sell Stock with Cooldown</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-09T13:01:21.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-09</time></li>
+                <li><time datetime="2024-04-12T09:54:10.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-12</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -212,7 +212,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1123
+                            ~1.82K
                         
                         字
                     </li>
@@ -224,111 +224,64 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1712743147972"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712934640687"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8docker"><span class="toc-number">1.</span> <span class="toc-text">启动docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-number">3.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">容器操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">镜像操作</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#analysis"><span class="toc-number">2.1.</span> <span class="toc-text">analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion"><span class="toc-number">2.2.</span> <span class="toc-text">conclusion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-number">2.3.</span> <span class="toc-text">code</span></a></li></ol></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><p>可以通过以下命令启动docker的守护程序</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker </span><br></pre></td></tr></table></figure>
-
-<p><code>systemctl</code>启动的应用程序，通过搜索后缀为<code>.service</code>的文件,存放目录为<code>/usr/lib/systemd/system/</code></p>
-<p>例如docker的服务文件为<code>docker.service</code></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>切换国内镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://yxzrazem.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-
+            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>ith</code> day.</p>
+<p>Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times) with the following restrictions:</p>
 <ul>
-<li><p>在<code>/etc/docker/daemon.json</code>中修改，若不存在则创建该文件</p>
+<li>After you sell your stock, you cannot buy stock on the next day (i.e., cooldown one day).</li>
+</ul>
+<p><strong>Note:</strong> You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [1,2,3,0,2]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: transactions = [buy, sell, cooldown, buy, sell]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [1]</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= prices.length &lt;= 5000</code></li>
+<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h3><p>可以尝试使用动态规划解决</p>
+<p>存在三种状态：</p>
+<ul>
+<li>手中持有股票</li>
+<li>处于冷冻期</li>
+<li>手中不持有股票且不处于冷冻期</li>
+</ul>
+<p>分别将以上三种状态标记为<code>hold</code> <code>freeze</code> <code>not</code>,最大余额为<code>f0</code> <code>f1</code> <code>f2</code></p>
+<ul>
+<li><p>对于<code>hold</code>状态，有两种情况：目前持有股票和目前未持有股票</p>
+<ul>
+<li>对于目前持有股票，无须操作，余额仍为<code>f0</code></li>
+<li>对于目前未持有股票，要达到<code>hold</code>状态需要购买当天股票，那么前一天的状态必须是<code>hold</code>，由此余额为<code>f2-prices[i]</code></li>
+</ul>
+<p>由此可以得到状态<code>hold</code>收益的最大值为<code>max(f0,f2-prices[i])</code></p>
 </li>
-<li><p>修改成以上json数据</p>
+<li><p>对于<code>cold</code>状态只有一种情况：前一天状态为<code>hold</code>，当天卖出了股票，收益为<code>f0+prices[i]</code></p>
+<p>因此<code>cold</code>状态的最大收益为<code>f0+prices[i]</code></p>
 </li>
-<li><p>重新加载 Systemd 守护程序管理器的配置文件</p>
-</li>
-<li><p>重启docker服务</p>
+<li><p>对于<code>not</code>状态有两种情况：前一天是状态为<code>not</code>、前一天状态为<code>cold</code></p>
+<ul>
+<li>对于前一天状态为<code>not</code>，无需操作，余额仍为<code>f2</code></li>
+<li>对于前一天状态为<code>cold</code>，余额为前一天的<code>cold</code>状态的余额，即<code>f1</code></li>
+</ul>
+<p>由此可以得到状态<code>not</code>的取得收益的最大值为<code>max(f1,f2)</code></p>
 </li>
 </ul>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>查看网络</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br></pre></td></tr></table></figure>
-
-<p>删除网络</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network rm &lt;NETWORK ID&gt;</span><br></pre></td></tr></table></figure>
-
-<p>创建网络</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create &lt;NETWORK NAME&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><p>运行容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run &lt;IMAGE NAME&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>-d</code> 后台运行</p>
-</li>
-<li><p><code>--name &lt;NAME&gt;</code> 设置容器名</p>
-</li>
-<li><p><code>-m 4GB</code> 分配4GB的内存</p>
-</li>
-<li><p><code>-e</code> 设置环境变量</p>
-</li>
-<li><p><code>--privileged</code> 分配特权</p>
-</li>
-<li><p><code>--net &lt;NETWORK NAME&gt;</code> 在指定网络下运行</p>
-</li>
-<li><p><code>-p &lt;PORT&gt;:&lt;PORT&gt;</code> 开放端口</p>
-</li>
-</ul>
-<p>查询容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>-a</code>查看所有容器包括停止的容器</li>
-</ul>
-<p>停止容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop &lt;CONTAINER&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>删除容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
-
-
-
-<p>进入容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container_id_or_name&gt; bash</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-<h2 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h2><p>查询镜像</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-
-
-<p>删除镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi [OPTIONS] IMAGE [IMAGE...]</span><br></pre></td></tr></table></figure>
-
-
-
-<p>拉取镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [OPTIONS] NAME[:TAG|@DIGEST]</span><br></pre></td></tr></table></figure>
-
-
-
-
+<p>最后结束天要想得到收益最大值有两种情况：当天卖出股票处于冷冻期<code>cold</code>和当前未持有股票且不处于冷冻状态<code>not</code>，取两者最大值即可<code>max(f1,f2)</code></p>
+<h3 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h3><p>对于本题来说，采用暴力算法需要将尝试每一天的<code>hold</code> <code>cold</code> <code>not</code>的可能情况</p>
+<p>而动态规划记录了三种状态在某一天收益最大值的可能性，而不是一味记录所有可能的收入情况，极大减少了重复计算量</p>
+<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        int n=prices.size();</span><br><span class="line">        int f0=-prices[0],f1=0,f2=0;</span><br><span class="line">        for(int i=1;i&lt;n;i++)&#123;</span><br><span class="line">            tmp_f0=max(f0,f2-prices[i]);</span><br><span class="line">            tmp_f1=f0+prices[i];</span><br><span class="line">            tmp_f2=max(f1,f2);</span><br><span class="line">            f0=tmp_f0;</span><br><span class="line">            f1=tmp_f1;</span><br><span class="line">            f2=tmp_f2;</span><br><span class="line">        &#125;</span><br><span class="line">        return max(f1,f2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -385,7 +338,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/09/docker-command/",
+                text: "https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -397,12 +350,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/09/docker-command/";
-            const title         = "「docker command」";
-            const excerpt       = `启动docker可以通过以下命令启动docker的守护程序
-1systemctl start docker 
-
-systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为/usr/lib/systemd/sys...`;
+            const hostUrl       = "https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/";
+            const title         = "「Best Time to Buy and Sell Stock with Cooldown」";
+            const excerpt       = `DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day.
+Find the maxim...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -424,7 +375,7 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-10T09:59:07.972Z" itemprop="dateModified">最后编辑：2024-04-10</time>
+                    <time datetime="2024-04-12T15:10:40.687Z" itemprop="dateModified">最后编辑：2024-04-12</time>
                 </div>
             </div>
         </footer>
@@ -433,13 +384,9 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" elasticsearch deployment" href="/2024/04/09/elasticsearch-deployment/">&lt; 上一篇</a>
+                <a title=" Linux expand disk" href="/2024/04/11/Linux-expand-disk/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Linux expand disk" href="/2024/04/11/Linux-expand-disk/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -507,7 +454,7 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8docker"><span class="toc-text">启动docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-text">网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">容器操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C"><span class="toc-text">镜像操作</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#analysis"><span class="toc-text">analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion"><span class="toc-text">conclusion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-text">code</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
