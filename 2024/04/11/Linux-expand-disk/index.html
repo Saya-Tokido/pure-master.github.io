@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/mitsuha.jpg">
+  
+  <title>Linux expand disk | ljz&#39;s Blog</title>
+  
+  <meta name="author" content="Lao Jinzan" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="重要！操作前务必备份！ 务必备份！ 务必备份！ 分配硬盘空间可在VMware中分配 本文中扩大到128GB 但是我们发现分配后的磁盘空间不能直接利用，还需要为磁盘分区或扩容 查看磁盘分区结构使用lsblk可查看 1234567NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTsda               8:0    0  128G  0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux expand disk">
+<meta property="og:url" content="https://pure-master.github.io/2024/04/11/Linux-expand-disk/index.html">
+<meta property="og:site_name" content="ljz&#39;s Blog">
+<meta property="og:description" content="重要！操作前务必备份！ 务必备份！ 务必备份！ 分配硬盘空间可在VMware中分配 本文中扩大到128GB 但是我们发现分配后的磁盘空间不能直接利用，还需要为磁盘分区或扩容 查看磁盘分区结构使用lsblk可查看 1234567NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTsda               8:0    0  128G  0">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
+<meta property="article:published_time" content="2024-04-11T10:51:27.000Z">
+<meta property="article:modified_time" content="2024-04-11T12:23:12.386Z">
+<meta property="article:author" content="Lao Jinzan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li>
+                                            
+                                                <a href="/">
+                                            
+                                                
+                                                    <i class="fa fa-home"></i>
+                                                
+                                                Home
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/archives/">
+                                            
+                                                
+                                                    <i class="fa fa-file"></i>
+                                                
+                                                File
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/friends/">
+                                            
+                                                
+                                                    <i class="fa fa-paw"></i>
+                                                
+                                                Friends
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a>
+                                            
+                                                
+                                                    <i class="fa fa-link"></i>
+                                                
+                                                Links
+                                            </a>
+                                            
+                                                <ul class="sub-menu">
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://javaguide.cn/home.html">
+                                                                
+                                                                javaguide
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/22/docs/api/index.html">
+                                                                
+                                                                java document
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://leetcode.cn/studyplan/top-interview-150/">
+                                                                
+                                                                leetcode
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">ljz&#39;s Blog</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>ljz&#39;s Blog</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/11/Linux-expand-disk/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Linux expand disk</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2024-04-11T10:51:27.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-11</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~3.70K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712838192386"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%EF%BC%81"><span class="toc-number">1.</span> <span class="toc-text">重要！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%85%8D%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">分配硬盘空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">查看磁盘分区结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%A4%A7%E5%88%86%E5%8C%BA%E7%A9%BA%E9%97%B4"><span class="toc-number">4.</span> <span class="toc-text">扩大分区空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E5%8C%BA%E8%B5%84%E6%BA%90%E5%85%B7%E4%BD%93%E6%95%B0%E5%80%BC"><span class="toc-number">4.1.</span> <span class="toc-text">查看分区资源具体数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%88%86%E5%8C%BA%E8%B0%83%E6%95%B4%E7%95%8C%E9%9D%A2"><span class="toc-number">4.2.</span> <span class="toc-text">进入分区调整界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%88%86%E5%8C%BA"><span class="toc-number">4.3.</span> <span class="toc-text">删除分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E5%8C%BA"><span class="toc-number">4.4.</span> <span class="toc-text">创建分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%86%E5%8C%BA%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.5.</span> <span class="toc-text">设置分区类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E5%B9%B6%E9%80%80%E5%87%BA"><span class="toc-number">4.6.</span> <span class="toc-text">保存并退出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E7%89%A9%E7%90%86%E5%8D%B7%E5%A4%A7%E5%B0%8F"><span class="toc-number">5.</span> <span class="toc-text">调整物理卷大小</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%88%86%E5%8C%BA%E5%A4%A7%E5%B0%8F%E6%98%AF%E5%90%A6%E8%B0%83%E6%95%B4"><span class="toc-number">5.1.</span> <span class="toc-text">验证分区大小是否调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E7%89%A9%E7%90%86%E5%8D%B7%E5%A4%A7%E5%B0%8F-1"><span class="toc-number">5.2.</span> <span class="toc-text">调整物理卷大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%85%85%E9%80%BB%E8%BE%91%E5%8D%B7"><span class="toc-number">5.3.</span> <span class="toc-text">扩充逻辑卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%A4%A7%E5%B0%8F"><span class="toc-number">5.4.</span> <span class="toc-text">调整文件系统大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-number">5.5.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%BB%84%E3%80%81%E7%89%A9%E7%90%86%E5%8D%B7%E3%80%81%E9%80%BB%E8%BE%91%E5%8D%B7%E8%AE%B2%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">卷组、物理卷、逻辑卷讲解</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h2 id="重要！"><a href="#重要！" class="headerlink" title="重要！"></a>重要！</h2><p><strong>操作前务必备份！</strong></p>
+<p><strong>务必备份！</strong></p>
+<p><strong>务必备份！</strong></p>
+<h2 id="分配硬盘空间"><a href="#分配硬盘空间" class="headerlink" title="分配硬盘空间"></a>分配硬盘空间</h2><p>可在VMware中分配<img src="/images/image-20240411185535128.png" alt="分配磁盘空间"></p>
+<p>本文中扩大到128GB</p>
+<p>但是我们发现分配后的磁盘空间不能直接利用，还需要为磁盘分区或扩容</p>
+<h2 id="查看磁盘分区结构"><a href="#查看磁盘分区结构" class="headerlink" title="查看磁盘分区结构"></a>查看磁盘分区结构</h2><p>使用<code>lsblk</code>可查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  128G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0  19G  0 part</span><br><span class="line">  ├─centos-root 253:0    0   17G  0 lvm  /</span><br><span class="line">  └─centos-swap 253:1    0    2G  0 lvm  [SWAP]</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>sda1</code>和<code>sda2</code>之和远小于分配后的sda容量，究其原因是有一部分空间未分配</p>
+<h2 id="扩大分区空间"><a href="#扩大分区空间" class="headerlink" title="扩大分区空间"></a>扩大分区空间</h2><h3 id="查看分区资源具体数值"><a href="#查看分区资源具体数值" class="headerlink" title="查看分区资源具体数值"></a>查看分区资源具体数值</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p>使用以上命令可以查看各分区资源具体数值</p>
+<h3 id="进入分区调整界面"><a href="#进入分区调整界面" class="headerlink" title="进入分区调整界面"></a>进入分区调整界面</h3><p>接下来调整分区大小,，进入分区调整界面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sda</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以下为分区调整的页面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Command action</span><br><span class="line">   a   toggle a bootable flag</span><br><span class="line">   b   edit bsd disklabel</span><br><span class="line">   c   toggle the dos compatibility flag</span><br><span class="line">   d   delete a partition</span><br><span class="line">   g   create a new empty GPT partition table</span><br><span class="line">   G   create an IRIX (SGI) partition table</span><br><span class="line">   l   list known partition types</span><br><span class="line">   m   print this menu</span><br><span class="line">   n   add a new partition</span><br><span class="line">   o   create a new empty DOS partition table</span><br><span class="line">   p   print the partition table</span><br><span class="line">   q   quit without saving changes</span><br><span class="line">   s   create a new empty Sun disklabel</span><br><span class="line">   t   change a partition&#x27;s system id</span><br><span class="line">   u   change display/entry units</span><br><span class="line">   v   verify the partition table</span><br><span class="line">   w   write table to disk and exit</span><br><span class="line">   x   extra functionality (experts only)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="删除分区"><a href="#删除分区" class="headerlink" title="删除分区"></a>删除分区</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>d</code>代表删除分区，<code>2</code>代表<code>sda2</code>分区</p>
+<h3 id="创建分区"><a href="#创建分区" class="headerlink" title="创建分区"></a>创建分区</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">n</span><br><span class="line">p</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>n</code>代表创建分区,<code>p</code>代表主分区，<code>2</code>代表<code>sda2</code>，后面扇区起始值、删除值自定，<strong>理论上包括原来的删除的区域数据就不会丢</strong>，默认为最小和最大值</p>
+<h3 id="设置分区类型"><a href="#设置分区类型" class="headerlink" title="设置分区类型"></a>设置分区类型</h3><p>采用LVM模式 8e</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t</span><br><span class="line">8e</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="保存并退出"><a href="#保存并退出" class="headerlink" title="保存并退出"></a>保存并退出</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e</span><br></pre></td></tr></table></figure>
+
+
+
+<p>因为使用的是虚拟机，保存并退出后要重启虚拟机</p>
+<h2 id="调整物理卷大小"><a href="#调整物理卷大小" class="headerlink" title="调整物理卷大小"></a>调整物理卷大小</h2><h3 id="验证分区大小是否调整"><a href="#验证分区大小是否调整" class="headerlink" title="验证分区大小是否调整"></a>验证分区大小是否调整</h3><p>此时执行<code>lsblk</code>就会发现sda2空间增长了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  128G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0  127G  0 part</span><br><span class="line">  ├─centos-root 253:0    0   17G  0 lvm  /</span><br><span class="line">  └─centos-swap 253:1    0    2G  0 lvm  [SWAP]</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="调整物理卷大小-1"><a href="#调整物理卷大小-1" class="headerlink" title="调整物理卷大小"></a>调整物理卷大小</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pvresize /dev/sda2</span><br></pre></td></tr></table></figure>
+
+
+
+<p>现在可以sda2物理卷可以利用上分区新分配的空间了</p>
+<p>关于卷组、物理卷、逻辑卷的描述可以看最后的<a href="#jump">讲解</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vgdisplay</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>vgdisplay</code>查看卷组</li>
+<li><code>pvdisplay</code>查看物理卷</li>
+<li><code>lvdisplay</code>查看逻辑卷</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">--- Volume group ---</span><br><span class="line">VG Name               centos</span><br><span class="line">System ID</span><br><span class="line">Format                lvm2</span><br><span class="line">Metadata Areas        1</span><br><span class="line">Metadata Sequence No  5</span><br><span class="line">VG Access             read/write</span><br><span class="line">VG Status             resizable</span><br><span class="line">MAX LV                0</span><br><span class="line">Cur LV                2</span><br><span class="line">Open LV               2</span><br><span class="line">Max PV                0</span><br><span class="line">Cur PV                1</span><br><span class="line">Act PV                1</span><br><span class="line">VG Size               &lt;127.00 GiB</span><br><span class="line">PE Size               4.00 MiB</span><br><span class="line">Total PE              32511</span><br><span class="line">Alloc PE / Size       4863 / &lt;19.00 GiB</span><br><span class="line">Free  PE / Size       27648 / 108.00 GiB</span><br><span class="line">VG UUID               9iG8kp-S0a5-sVhl-XB6P-CRIu-Wu4A-pProWn</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以看到重新分配的物理卷后，卷组总大小扩大到127G了</p>
+<h3 id="扩充逻辑卷"><a href="#扩充逻辑卷" class="headerlink" title="扩充逻辑卷"></a>扩充逻辑卷</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lvextend -l +100%FREE /dev/mapper/centos-root</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>lvextend</code>扩充逻辑卷命令</li>
+<li><code>-l +100%FREE</code> 按比例扩充</li>
+<li><code>-L 10GB</code> 按数值扩充</li>
+<li><code>/dev/mapper/centos-root</code> 要扩充的逻辑卷名称</li>
+</ul>
+<p>输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Size of logical volume centos/root changed from &lt;17.00 GiB (4351 extents) to &lt;125.00 GiB (31999 extents).</span><br><span class="line">Logical volume centos/root successfully resized.</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="调整文件系统大小"><a href="#调整文件系统大小" class="headerlink" title="调整文件系统大小"></a>调整文件系统大小</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xfs_growfs /dev/mapper/centos-root</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果使用的时<code>XFS</code>文件系统，要使用<code>xfs_growfs</code></li>
+<li><code>/dev/mapper/centos-root</code>挂载的逻辑卷名</li>
+</ul>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>显示文件系统磁盘利用率的命令</li>
+<li><code>-h</code>为以人类可读的形式输出</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Filesystem               Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs                 3.8G     0  3.8G   0% /dev</span><br><span class="line">tmpfs                    3.9G     0  3.9G   0% /dev/shm</span><br><span class="line">tmpfs                    3.9G   12M  3.8G   1% /run</span><br><span class="line">tmpfs                    3.9G     0  3.9G   0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/centos-root  125G   17G  109G  14% /</span><br><span class="line">/dev/sda1               1014M  278M  737M  28% /boot</span><br><span class="line">tmpfs                    781M     0  781M   0% /run/user/0</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以看到文件系统根目录的空间扩充了</p>
+<span id="jump">
+
+<h2 id="卷组、物理卷、逻辑卷讲解"><a href="#卷组、物理卷、逻辑卷讲解" class="headerlink" title="卷组、物理卷、逻辑卷讲解"></a>卷组、物理卷、逻辑卷讲解</h2></span>
+
+<p><code>LVM</code>（<code>Logical Volume Manager</code>）中的三个重要概念</p>
+<ul>
+<li>物理卷(<code>Physical Volume</code>)：<code>LVM</code>的基本构建单元，通常对应物理磁盘或分区</li>
+<li>卷组(<code>Volume Group</code>)：一个或多个物理卷的集合，这些物理卷被组合在一起形成逻辑的储存池，可以动态增长和缩小而不用考虑底层的物理设备细节</li>
+<li>逻辑卷(<code>Logical Group</code>)：卷组中划分出来的逻辑储存空间，可以被格式化并挂载为文件系统，从而像常规分区一样使用，但更具有灵活的管理能力</li>
+</ul>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://pure-master.github.io/2024/04/11/Linux-expand-disk/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://pure-master.github.io/2024/04/11/Linux-expand-disk/";
+            const title         = "「Linux expand disk」";
+            const excerpt       = `重要！操作前务必备份！
+务必备份！
+务必备份！
+分配硬盘空间可在VMware中分配
+本文中扩大到128GB
+但是我们发现分配后的磁盘空间不能直接利用，还需要为磁盘分区或扩容
+查看磁盘分区结构使用lsblk可查看
+1234567NAME...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-11T12:23:12.386Z" itemprop="dateModified">最后编辑：2024-04-11</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" docker command" href="/2024/04/09/docker-command/">&lt; 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/mitsuha.jpg" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                8
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                0
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%EF%BC%81"><span class="toc-text">重要！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%85%8D%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4"><span class="toc-text">分配硬盘空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%BB%93%E6%9E%84"><span class="toc-text">查看磁盘分区结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%A4%A7%E5%88%86%E5%8C%BA%E7%A9%BA%E9%97%B4"><span class="toc-text">扩大分区空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E5%8C%BA%E8%B5%84%E6%BA%90%E5%85%B7%E4%BD%93%E6%95%B0%E5%80%BC"><span class="toc-text">查看分区资源具体数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%88%86%E5%8C%BA%E8%B0%83%E6%95%B4%E7%95%8C%E9%9D%A2"><span class="toc-text">进入分区调整界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%88%86%E5%8C%BA"><span class="toc-text">删除分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E5%8C%BA"><span class="toc-text">创建分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%86%E5%8C%BA%E7%B1%BB%E5%9E%8B"><span class="toc-text">设置分区类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E5%B9%B6%E9%80%80%E5%87%BA"><span class="toc-text">保存并退出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E7%89%A9%E7%90%86%E5%8D%B7%E5%A4%A7%E5%B0%8F"><span class="toc-text">调整物理卷大小</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%88%86%E5%8C%BA%E5%A4%A7%E5%B0%8F%E6%98%AF%E5%90%A6%E8%B0%83%E6%95%B4"><span class="toc-text">验证分区大小是否调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E7%89%A9%E7%90%86%E5%8D%B7%E5%A4%A7%E5%B0%8F-1"><span class="toc-text">调整物理卷大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%85%85%E9%80%BB%E8%BE%91%E5%8D%B7"><span class="toc-text">扩充逻辑卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%A4%A7%E5%B0%8F"><span class="toc-text">调整文件系统大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%BB%84%E3%80%81%E7%89%A9%E7%90%86%E5%8D%B7%E3%80%81%E9%80%BB%E8%BE%91%E5%8D%B7%E8%AE%B2%E8%A7%A3"><span class="toc-text">卷组、物理卷、逻辑卷讲解</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+
+            
+                
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/11/Linux-expand-disk/"><i class="fa  fa-book"></i> Linux expand disk</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/09/docker-command/"><i class="fa  fa-book"></i> docker command</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/09/elasticsearch-deployment/"><i class="fa  fa-book"></i> elasticsearch deployment</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"><i class="fa  fa-book"></i> 动态规划背包问题</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/"><i class="fa  fa-book"></i> Best Time to Buy and Sell Stock IV</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 ljz's Blog 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by Lao Jinzan.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

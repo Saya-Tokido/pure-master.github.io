@@ -3,7 +3,7 @@
     <head>
   <!-- 元数据 -->
   <meta charset="utf-8">
-  
+  <link rel="icon" href="/images/mitsuha.jpg">
   
   <title>elasticsearch deployment | ljz&#39;s Blog</title>
   
@@ -17,17 +17,19 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="Run ElasticSearchCreate a new docker network1docker network create es-net      Pull the Elasticsearch Docker image1docker pull elasticsearch:8.13.0      Start an Elasticsearch container123456789101112">
+  <meta name="description" content="Run ElasticSearchCreate a new docker network1docker network create es-net      Pull the Elasticsearch Docker image1docker pull docker.elastic.co&#x2F;elasticsearch&#x2F;elasticsearch:8.13.2      Start an Elasti">
 <meta property="og:type" content="article">
 <meta property="og:title" content="elasticsearch deployment">
 <meta property="og:url" content="https://pure-master.github.io/2024/04/09/elasticsearch-deployment/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="Run ElasticSearchCreate a new docker network1docker network create es-net      Pull the Elasticsearch Docker image1docker pull elasticsearch:8.13.0      Start an Elasticsearch container123456789101112">
+<meta property="og:description" content="Run ElasticSearchCreate a new docker network1docker network create es-net      Pull the Elasticsearch Docker image1docker pull docker.elastic.co&#x2F;elasticsearch&#x2F;elasticsearch:8.13.2      Start an Elasti">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
 <meta property="article:published_time" content="2024-04-09T10:42:26.000Z">
-<meta property="article:modified_time" content="2024-04-09T13:10:07.014Z">
+<meta property="article:modified_time" content="2024-04-11T13:32:33.203Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
   <!-- 站点验证相关 -->
   
@@ -210,7 +212,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.95K
+                            ~3.06K
                         
                         字
                     </li>
@@ -222,7 +224,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1712668207014"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712842353203"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -238,13 +240,19 @@
 
 
 
-<h2 id="Pull-the-Elasticsearch-Docker-image"><a href="#Pull-the-Elasticsearch-Docker-image" class="headerlink" title="Pull the Elasticsearch Docker image"></a>Pull the Elasticsearch Docker image</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull elasticsearch:8.13.0</span><br></pre></td></tr></table></figure>
+<h2 id="Pull-the-Elasticsearch-Docker-image"><a href="#Pull-the-Elasticsearch-Docker-image" class="headerlink" title="Pull the Elasticsearch Docker image"></a>Pull the Elasticsearch Docker image</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull docker.elastic.co/elasticsearch/elasticsearch:8.13.2</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h2 id="Start-an-Elasticsearch-container"><a href="#Start-an-Elasticsearch-container" class="headerlink" title="Start an Elasticsearch container"></a>Start an Elasticsearch container</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name es \</span><br><span class="line">-e &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot; \</span><br><span class="line">-e &quot;discovery.type=single-node&quot; \</span><br><span class="line">-v es-data:/usr/share/elasticsearch/data \</span><br><span class="line">-v es-plugins:/usr/share/elasticsearch/plugins \</span><br><span class="line">--privileged \</span><br><span class="line">--net es-net \</span><br><span class="line">-p 9200:9200 \</span><br><span class="line">-p 9300:9300 \</span><br><span class="line">-it \</span><br><span class="line">elasticsearch:8.13.0</span><br></pre></td></tr></table></figure>
+<h2 id="Start-an-Elasticsearch-container"><a href="#Start-an-Elasticsearch-container" class="headerlink" title="Start an Elasticsearch container"></a>Start an Elasticsearch container</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w vm.max_map_count=262144</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name es \</span><br><span class="line">-m 4GB \</span><br><span class="line">-e &quot;discovery.type=single-node&quot; \</span><br><span class="line">-v /home/docker/volumes/elasticsearch/data:/usr/share/elasticsearch/data \</span><br><span class="line">--privileged \</span><br><span class="line">--net es-net \</span><br><span class="line">-p 9200:9200 \</span><br><span class="line">-p 9300:9300 \</span><br><span class="line">-d \</span><br><span class="line">docker.elastic.co/elasticsearch/elasticsearch:8.13.2</span><br></pre></td></tr></table></figure>
 
 <p>命令解释：</p>
 <ul>
@@ -285,11 +293,11 @@
 
 
 
-<h1 id="Run-Kibana"><a href="#Run-Kibana" class="headerlink" title="Run Kibana"></a>Run Kibana</h1><h2 id="Pull-the-Kibana-Docker-image"><a href="#Pull-the-Kibana-Docker-image" class="headerlink" title="Pull the Kibana Docker image"></a>Pull the Kibana Docker image</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull kibana:8.13.0</span><br></pre></td></tr></table></figure>
+<h1 id="Run-Kibana"><a href="#Run-Kibana" class="headerlink" title="Run Kibana"></a>Run Kibana</h1><h2 id="Pull-the-Kibana-Docker-image"><a href="#Pull-the-Kibana-Docker-image" class="headerlink" title="Pull the Kibana Docker image"></a>Pull the Kibana Docker image</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull docker.elastic.co/kibana/kibana:8.13.2</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="Start-a-Kibana-container"><a href="#Start-a-Kibana-container" class="headerlink" title="Start a Kibana container"></a>Start a Kibana container</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name kibana \</span><br><span class="line">-e ELASTICSEARCH_HOSTS=http://es:9200 \</span><br><span class="line">--net es-net \</span><br><span class="line">-p 5601:5601 \</span><br><span class="line">kibana:8.13.0</span><br></pre></td></tr></table></figure>
+<h2 id="Start-a-Kibana-container"><a href="#Start-a-Kibana-container" class="headerlink" title="Start a Kibana container"></a>Start a Kibana container</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name kibana \</span><br><span class="line">-e ELASTICSEARCH_HOSTS=http://es:9200 \</span><br><span class="line">--net es-net \</span><br><span class="line">-p 5601:5601 \</span><br><span class="line">-d \</span><br><span class="line">docker.elastic.co/kibana/kibana:8.13.2</span><br></pre></td></tr></table></figure>
 
 
 
@@ -411,7 +419,7 @@ Pull the Elasticsearch Docker image1do...`;
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-09T13:10:07.014Z" itemprop="dateModified">最后编辑：2024-04-09</time>
+                    <time datetime="2024-04-11T13:32:33.203Z" itemprop="dateModified">最后编辑：2024-04-11</time>
                 </div>
             </div>
         </footer>
@@ -462,7 +470,7 @@ Pull the Elasticsearch Docker image1do...`;
                 文章
             </span>
             <span class="count">
-                7
+                8
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -512,6 +520,12 @@ Pull the Elasticsearch Docker image1do...`;
         
           
           
+            <a class="list-group-item" href="/2024/04/11/Linux-expand-disk/"><i class="fa  fa-book"></i> Linux expand disk</a>
+            
+          
+        
+          
+          
             <a class="list-group-item" href="/2024/04/09/docker-command/"><i class="fa  fa-book"></i> docker command</a>
             
           
@@ -535,11 +549,7 @@ Pull the Elasticsearch Docker image1do...`;
           
         
           
-          
-            <a class="list-group-item" href="/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/"><i class="fa  fa-book"></i> Best Time to Buy and Sell Stock III</a>
             
-          
-        
           
             
           

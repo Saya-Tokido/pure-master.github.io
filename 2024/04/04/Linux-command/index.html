@@ -3,7 +3,7 @@
     <head>
   <!-- 元数据 -->
   <meta charset="utf-8">
-  
+  <link rel="icon" href="/images/mitsuha.jpg">
   
   <title>Linux command | ljz&#39;s Blog</title>
   
@@ -17,17 +17,19 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="使用SSH连接Linux服务器： 12ssh username@Linuxaddress输入密码：     本机与Linux上传下载文件  从Linux服务器下载文件（文件夹）到本机 12scp username@Linuxaddress:&#x2F;home&#x2F;hhn&#x2F;code C:\Users\Administrator\Desktop输入密码：  从本机上传文件（文件夹）到Linux服务器 12scp">
+  <meta name="description" content="本机与虚拟机之间交互 使用SSH连接Linux服务器： 12ssh username@Linuxaddress输入密码：     本机与Linux上传下载文件  从Linux服务器下载文件（文件夹）到本机 12scp username@Linuxaddress:&#x2F;home&#x2F;hhn&#x2F;code C:\Users\Administrator\Desktop输入密码：  从本机上传文件（文件夹）到Linu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux command">
 <meta property="og:url" content="https://pure-master.github.io/2024/04/04/Linux-command/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="使用SSH连接Linux服务器： 12ssh username@Linuxaddress输入密码：     本机与Linux上传下载文件  从Linux服务器下载文件（文件夹）到本机 12scp username@Linuxaddress:&#x2F;home&#x2F;hhn&#x2F;code C:\Users\Administrator\Desktop输入密码：  从本机上传文件（文件夹）到Linux服务器 12scp">
+<meta property="og:description" content="本机与虚拟机之间交互 使用SSH连接Linux服务器： 12ssh username@Linuxaddress输入密码：     本机与Linux上传下载文件  从Linux服务器下载文件（文件夹）到本机 12scp username@Linuxaddress:&#x2F;home&#x2F;hhn&#x2F;code C:\Users\Administrator\Desktop输入密码：  从本机上传文件（文件夹）到Linu">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
 <meta property="article:published_time" content="2024-04-04T14:22:12.000Z">
-<meta property="article:modified_time" content="2024-04-04T14:43:57.630Z">
+<meta property="article:modified_time" content="2024-04-11T13:34:07.819Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
   <!-- 站点验证相关 -->
   
@@ -210,7 +212,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1174
+                            1336
                         
                         字
                     </li>
@@ -222,13 +224,17 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1712241837630"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712842447819"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%9C%BA%E4%B8%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%BA%A4%E4%BA%92"><span class="toc-number">1.</span> <span class="toc-text">本机与虚拟机之间交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">防火墙操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">ip操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">磁盘操作</span></a></li></ol>
+                </div>
+            
             <hr />
-            <div itemprop="articleBody"><ul>
+            <div itemprop="articleBody"><h2 id="本机与虚拟机之间交互"><a href="#本机与虚拟机之间交互" class="headerlink" title="本机与虚拟机之间交互"></a>本机与虚拟机之间交互</h2><ul>
 <li><p>使用SSH连接Linux服务器：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh username@Linuxaddress</span><br><span class="line">输入密码：</span><br></pre></td></tr></table></figure>
 
@@ -244,6 +250,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r C:\Users\Administrator\Desktop  		    username@Linuxaddress:/home/hhn/code </span><br><span class="line">输入密码：</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
+</ul>
+<h2 id="防火墙操作"><a href="#防火墙操作" class="headerlink" title="防火墙操作"></a>防火墙操作</h2><ul>
 <li><p>Linux 开放端口</p>
 <ul>
 <li><p>开启防火墙<br><code> systemctl start firewalld</code></p>
@@ -261,6 +269,8 @@
 </li>
 </ul>
 </li>
+</ul>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
 <li><p>Linux 操作文件</p>
 <ul>
 <li><p><code>rm -rf 目录名</code>           删除目录连同目录下所有文件</p>
@@ -289,13 +299,31 @@
 </li>
 </ul>
 </li>
-<li><p>IPv4 转发</p>
-<ul>
+</ul>
+<h2 id="ip操作"><a href="#ip操作" class="headerlink" title="ip操作"></a>ip操作</h2><ul>
+<li>IPv4 转发<ul>
 <li><code>sysctl net.ipv4.ip_forward </code>   查看虚拟机是否开启ipv4转发</li>
 <li><code>sysctl -w net.ipv4.ip_forward=1</code> 开启ipv4转发</li>
 </ul>
 </li>
 </ul>
+<h2 id="磁盘操作"><a href="#磁盘操作" class="headerlink" title="磁盘操作"></a>磁盘操作</h2><p>查看虚拟机磁盘总占用情况</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看指定目录磁盘占用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh &lt;directory&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看当前目录各目录文件磁盘占用情况</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h --max-depth=1</span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看系统中所有硬盘和分区情况</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
 </div>
         </div>
         
@@ -363,7 +391,7 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "https://pure-master.github.io/2024/04/04/Linux-command/";
             const title         = "「Linux command」";
-            const excerpt       = `
+            const excerpt       = `本机与虚拟机之间交互
 使用SSH连接Linux服务器：
 12ssh username@Linuxaddress输入密码：
 
@@ -373,7 +401,7 @@
 本机与Linux上传下载文件
 
 从Linux服务器下载文件（文件夹）到本机
-12scp username@Linuxaddr...`;
+12scp username...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -395,7 +423,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-04T14:43:57.630Z" itemprop="dateModified">最后编辑：2024-04-04</time>
+                    <time datetime="2024-04-11T13:34:07.819Z" itemprop="dateModified">最后编辑：2024-04-11</time>
                 </div>
             </div>
         </footer>
@@ -446,7 +474,7 @@
                 文章
             </span>
             <span class="count">
-                7
+                8
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -470,6 +498,18 @@
             
                     <div class="sticky-area">
                 
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%9C%BA%E4%B8%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%BA%A4%E4%BA%92"><span class="toc-text">本机与虚拟机之间交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%93%8D%E4%BD%9C"><span class="toc-text">防火墙操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip%E6%93%8D%E4%BD%9C"><span class="toc-text">ip操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E6%93%8D%E4%BD%9C"><span class="toc-text">磁盘操作</span></a></li></ol>
+    </div>
+</aside>
+                
                 
 
             
@@ -481,6 +521,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2024/04/11/Linux-expand-disk/"><i class="fa  fa-book"></i> Linux expand disk</a>
+            
+          
         
           
           
@@ -507,11 +553,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/"><i class="fa  fa-book"></i> Best Time to Buy and Sell Stock III</a>
             
-          
-        
           
             
           
