@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>docker command | ljz&#39;s Blog</title>
+  <title>Word Search | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,16 +17,16 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="启动docker可以通过以下命令启动docker的守护程序 1systemctl start docker   systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 例如docker的服务文件为docker.service 配置切换国内镜像 1234567sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json">
+  <meta name="description" content="descriptionGiven an m x n grid of characters board and a string word, return true if word exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where adjacent ce">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker command">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/09/docker-command/index.html">
+<meta property="og:title" content="Word Search">
+<meta property="og:url" content="https://pure-master.github.io/2024/04/16/Word-Search/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="启动docker可以通过以下命令启动docker的守护程序 1systemctl start docker   systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 例如docker的服务文件为docker.service 配置切换国内镜像 1234567sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json">
+<meta property="og:description" content="descriptionGiven an m x n grid of characters board and a string word, return true if word exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where adjacent ce">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-09T13:01:21.000Z">
-<meta property="article:modified_time" content="2024-04-10T09:59:07.972Z">
+<meta property="article:published_time" content="2024-04-16T13:27:44.000Z">
+<meta property="article:modified_time" content="2024-04-16T13:55:53.483Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
@@ -195,15 +195,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/09/docker-command/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/16/Word-Search/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">docker command</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Word Search</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-09T13:01:21.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-09</time></li>
+                <li><time datetime="2024-04-16T13:27:44.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-16</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -212,7 +212,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1123
+                            ~3.32K
                         
                         字
                     </li>
@@ -224,109 +224,59 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1712743147972"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1713275753483"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8docker"><span class="toc-number">1.</span> <span class="toc-text">启动docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-number">3.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">容器操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">镜像操作</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#description"><span class="toc-number">1.</span> <span class="toc-text">description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><p>可以通过以下命令启动docker的守护程序</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker </span><br></pre></td></tr></table></figure>
+            <div itemprop="articleBody"><h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><p>Given an <code>m x n</code> grid of characters <code>board</code> and a string <code>word</code>, return <code>true</code> <em>if</em> <code>word</code> <em>exists in the grid</em>.</p>
+<p>The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="/images/word-post-1.jpg" alt="Example 1"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCCED&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
 
-<p><code>systemctl</code>启动的应用程序，通过搜索后缀为<code>.service</code>的文件,存放目录为<code>/usr/lib/systemd/system/</code></p>
-<p>例如docker的服务文件为<code>docker.service</code></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>切换国内镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://yxzrazem.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<p><img src="/images/word-post-2.jpg" alt="Example 2"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;SEE&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
 
+<p><strong>Example 3:</strong></p>
+<p><img src="/images/word-post-3.jpg" alt="Example 3"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCB&quot;</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
 <ul>
-<li><p>在<code>/etc/docker/daemon.json</code>中修改，若不存在则创建该文件</p>
+<li><code>m == board.length</code></li>
+<li><code>n = board[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 6</code></li>
+<li><code>1 &lt;= word.length &lt;= 15</code></li>
+<li><code>board</code> and <code>word</code> consists of only lowercase and uppercase English letters.</li>
+</ul>
+<p><strong>Follow up:</strong> Could you use search pruning to make your solution faster with a larger <code>board</code>?</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>主函数中遍历数组中的每个格子作为起始字母调用<code>fun</code>判断是否能找到匹配的解</p>
+<p>定义了<code>bolboard</code>作为<code>board</code>的映射表示是否被访问过来防止重复访问同一个格子</p>
+<p>在<code>fun</code>中，记录了当前访问的格子的坐标<code>row</code> <code>col</code>，访问情况记录数组<code>bolboard</code>，当前匹配的字符下标<code>index</code></p>
+<ul>
+<li><p>首先如果当前字符不匹配则返回false</p>
 </li>
-<li><p>修改成以上json数据</p>
-</li>
-<li><p>重新加载 Systemd 守护程序管理器的配置文件</p>
-</li>
-<li><p>重启docker服务</p>
+<li><p>匹配则进入下述操作</p>
+<ul>
+<li>判断字符是否匹配完，如是则返回true</li>
+<li>如否<ul>
+<li>记录当前访问的位置，<code>bolboard</code>置<code>true</code></li>
+<li>设置变量<code>temp</code>用于返回任何一个成功的搜寻结果</li>
+<li>按左上右下的顺序遍历数组调用<code>fun()</code></li>
+<li>为了防止搜寻失败后<code>bolboard</code>影响外层换方向搜寻，返回<code>temp</code>前应将本次 访问记录清除</li>
+</ul>
 </li>
 </ul>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>查看网络</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br></pre></td></tr></table></figure>
-
-<p>删除网络</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network rm &lt;NETWORK ID&gt;</span><br></pre></td></tr></table></figure>
-
-<p>创建网络</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create &lt;NETWORK NAME&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><p>运行容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run &lt;IMAGE NAME&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>-d</code> 后台运行</p>
-</li>
-<li><p><code>--name &lt;NAME&gt;</code> 设置容器名</p>
-</li>
-<li><p><code>-m 4GB</code> 分配4GB的内存</p>
-</li>
-<li><p><code>-e</code> 设置环境变量</p>
-</li>
-<li><p><code>--privileged</code> 分配特权</p>
-</li>
-<li><p><code>--net &lt;NETWORK NAME&gt;</code> 在指定网络下运行</p>
-</li>
-<li><p><code>-p &lt;PORT&gt;:&lt;PORT&gt;</code> 开放端口</p>
 </li>
 </ul>
-<p>查询容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>-a</code>查看所有容器包括停止的容器</li>
-</ul>
-<p>停止容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop &lt;CONTAINER&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>删除容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
-
-
-
-<p>进入容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container_id_or_name&gt; bash</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-<h2 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h2><p>查询镜像</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-
-
-<p>删除镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi [OPTIONS] IMAGE [IMAGE...]</span><br></pre></td></tr></table></figure>
-
-
-
-<p>拉取镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [OPTIONS] NAME[:TAG|@DIGEST]</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; board;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">exist</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; _board, string _word)</span> </span>&#123;</span><br><span class="line">        board=_board;</span><br><span class="line">        word=_word;</span><br><span class="line">        <span class="type">int</span> m=board.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> n=board[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; <span class="built_in">bolboard</span>(m,<span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n,<span class="literal">false</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">fun</span>(i,j,bolboard,<span class="number">0</span>))&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">fun</span><span class="params">(<span class="type">int</span> row,<span class="type">int</span> col,vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; &amp;bolboard,<span class="type">int</span> index)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(word[index]==board[row][col])&#123;</span><br><span class="line">            <span class="keyword">if</span>(word.<span class="built_in">size</span>()==index+<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">bool</span> temp=<span class="literal">false</span>;</span><br><span class="line">            bolboard[row][col]=<span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(col&gt;<span class="number">0</span>&amp;&amp;!bolboard[row][col<span class="number">-1</span>])&#123;</span><br><span class="line">                temp|=<span class="built_in">fun</span>(row,col<span class="number">-1</span>,bolboard,index+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!temp&amp;&amp;row&gt;<span class="number">0</span>&amp;&amp;!bolboard[row<span class="number">-1</span>][col])&#123;</span><br><span class="line">                temp|=<span class="built_in">fun</span>(row<span class="number">-1</span>,col,bolboard,index+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!temp&amp;&amp;col&lt;board[<span class="number">0</span>].<span class="built_in">size</span>()<span class="number">-1</span>&amp;&amp;!bolboard[row][col+<span class="number">1</span>])&#123;</span><br><span class="line">                temp|=<span class="built_in">fun</span>(row,col+<span class="number">1</span>,bolboard,index+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!temp&amp;&amp;row&lt;board.<span class="built_in">size</span>()<span class="number">-1</span>&amp;&amp;!bolboard[row+<span class="number">1</span>][col])&#123;</span><br><span class="line">                temp|=<span class="built_in">fun</span>(row+<span class="number">1</span>,col,bolboard,index+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            bolboard[row][col]=<span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">return</span> temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -385,7 +335,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/09/docker-command/",
+                text: "https://pure-master.github.io/2024/04/16/Word-Search/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -397,12 +347,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/09/docker-command/";
-            const title         = "「docker command」";
-            const excerpt       = `启动docker可以通过以下命令启动docker的守护程序
-1systemctl start docker 
-
-systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为/usr/lib/systemd/sys...`;
+            const hostUrl       = "https://pure-master.github.io/2024/04/16/Word-Search/";
+            const title         = "「Word Search」";
+            const excerpt       = `descriptionGiven an m x n grid of characters board and a string word, return true if word exists in the grid.
+The wor...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -424,7 +372,7 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-10T09:59:07.972Z" itemprop="dateModified">最后编辑：2024-04-10</time>
+                    <time datetime="2024-04-16T13:55:53.483Z" itemprop="dateModified">最后编辑：2024-04-16</time>
                 </div>
             </div>
         </footer>
@@ -433,13 +381,9 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" elasticsearch deployment" href="/2024/04/09/elasticsearch-deployment/">&lt; 上一篇</a>
+                <a title=" Best Time to Buy and Sell Stock with Cooldown" href="/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Linux expand disk" href="/2024/04/11/Linux-expand-disk/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -507,7 +451,7 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8docker"><span class="toc-text">启动docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-text">网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">容器操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C"><span class="toc-text">镜像操作</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#description"><span class="toc-text">description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li></ol>
     </div>
 </aside>
                 
