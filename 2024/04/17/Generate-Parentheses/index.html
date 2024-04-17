@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Best Time to Buy and Sell Stock IV | ljz&#39;s Blog</title>
+  <title>Generate Parentheses | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,16 +17,16 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="DescriptionYou are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an integer k. Find the maximum profit you can achieve. You may complete at most k tra">
+  <meta name="description" content="DescriptionGiven n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. Example 1: 12Input: n &#x3D; 3Output: [&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Best Time to Buy and Sell Stock IV">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/index.html">
+<meta property="og:title" content="Generate Parentheses">
+<meta property="og:url" content="https://pure-master.github.io/2024/04/17/Generate-Parentheses/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="DescriptionYou are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an integer k. Find the maximum profit you can achieve. You may complete at most k tra">
+<meta property="og:description" content="DescriptionGiven n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. Example 1: 12Input: n &#x3D; 3Output: [&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-08T09:16:58.000Z">
-<meta property="article:modified_time" content="2024-04-08T13:18:16.029Z">
+<meta property="article:published_time" content="2024-04-17T12:11:21.000Z">
+<meta property="article:modified_time" content="2024-04-17T12:25:25.820Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
@@ -195,15 +195,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/17/Generate-Parentheses/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Best Time to Buy and Sell Stock IV</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Generate Parentheses</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-08T09:16:58.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-08</time></li>
+                <li><time datetime="2024-04-17T12:11:21.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-17</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -212,7 +212,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.58K
+                            1317
                         
                         字
                     </li>
@@ -224,7 +224,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1712582296029"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1713356725820"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -234,26 +234,34 @@
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an integer array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>ith</code> day, and an integer <code>k</code>.</p>
-<p>Find the maximum profit you can achieve. You may complete at most <code>k</code> transactions: i.e. you may buy at most <code>k</code> times and sell at most <code>k</code> times.</p>
-<p><strong>Note:</strong> You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).</p>
+            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given <code>n</code> pairs of parentheses, write a function to <em>generate all combinations of well-formed parentheses</em>.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: k = 2, prices = [2,4,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: Buy on day 1 (price = 2) and sell on day 2 (price = 4), profit = 4-2 = 2.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 3</span><br><span class="line">Output: [&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&quot;,&quot;()(())&quot;,&quot;()()()&quot;]</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: k = 2, prices = [3,2,6,5,0,3]</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4. Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: [&quot;()&quot;]</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>1 &lt;= k &lt;= 100</code></li>
-<li><code>1 &lt;= prices.length &lt;= 1000</code></li>
-<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
+<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>思路同<a href="/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/" title="Best Time to Buy and Sell Stock III">Best Time to Buy and Sell Stock III</a></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p><code>n</code>对组合说明有左右括号各<code>n</code>个</p>
+<p>以<code>open</code>作为左括号，<code>close</code>作为右括号，<code>cur</code>表示当前处理的括号串</p>
+<p>进行回溯</p>
+<ul>
+<li><p>每次<code>cur</code>长度到达所需的<code>2*n</code>时插入答案中并返回</p>
+</li>
+<li><p>长度没达到要求</p>
+<ul>
+<li>左括号未达上限，试图插入<code>(</code>，调用<code>backtrack</code>，调用完弹出插入的字符</li>
+<li>右括号数量小于左括号，可以匹配一个括号，试图插入<code>(</code>，调用<code>backtrack</code>，调用完弹出插入的字符</li>
+<li>以上两种情况都不满足，直接返回</li>
+</ul>
+</li>
+</ul>
+<p>最终得到的数组即为答案</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        string cur;</span><br><span class="line">        <span class="built_in">backtrack</span>(ans,cur,<span class="number">0</span>,<span class="number">0</span>,n);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtrack</span><span class="params">(vector&lt;string&gt;&amp;ans,string &amp;cur,<span class="type">int</span> open,<span class="type">int</span> close,<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">2</span>*n==cur.<span class="built_in">length</span>())&#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(cur);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(open&lt;n)&#123;</span><br><span class="line">            cur.<span class="built_in">push_back</span>(<span class="string">&#x27;(&#x27;</span>);</span><br><span class="line">            <span class="built_in">backtrack</span>(ans,cur,open+<span class="number">1</span>,close,n);</span><br><span class="line">            cur.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(open&gt;close)&#123;</span><br><span class="line">            cur.<span class="built_in">push_back</span>(<span class="string">&#x27;)&#x27;</span>);</span><br><span class="line">            <span class="built_in">backtrack</span>(ans,cur,open,close+<span class="number">1</span>,n);</span><br><span class="line">            cur.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(<span class="type">int</span> k, vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=prices.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(<span class="number">2</span>*k,-prices[<span class="number">0</span>])</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">2</span>*k; i += <span class="number">2</span>) &#123;</span><br><span class="line">            dp[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp[<span class="number">0</span>]=<span class="built_in">max</span>(dp[<span class="number">0</span>],-prices[i]);</span><br><span class="line">            dp[<span class="number">1</span>]=<span class="built_in">max</span>(dp[<span class="number">1</span>],dp[<span class="number">0</span>]+prices[i]);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;k;j++)&#123;</span><br><span class="line">                <span class="type">int</span> index=<span class="number">2</span>*j;</span><br><span class="line">                dp[index]=<span class="built_in">max</span>(dp[index],dp[index<span class="number">-1</span>]-prices[i]);</span><br><span class="line">                dp[index+<span class="number">1</span>]=<span class="built_in">max</span>(dp[index+<span class="number">1</span>],dp[index]+prices[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">2</span>*k<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </div>
         </div>
         
@@ -307,7 +315,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/",
+                text: "https://pure-master.github.io/2024/04/17/Generate-Parentheses/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -319,9 +327,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/";
-            const title         = "「Best Time to Buy and Sell Stock IV」";
-            const excerpt       = `DescriptionYou are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an...`;
+            const hostUrl       = "https://pure-master.github.io/2024/04/17/Generate-Parentheses/";
+            const title         = "「Generate Parentheses」";
+            const excerpt       = `DescriptionGiven n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+Ex...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -343,7 +352,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-08T13:18:16.029Z" itemprop="dateModified">最后编辑：2024-04-08</time>
+                    <time datetime="2024-04-17T12:25:25.820Z" itemprop="dateModified">最后编辑：2024-04-17</time>
                 </div>
             </div>
         </footer>
@@ -352,13 +361,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Best Time to Buy and Sell Stock III" href="/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/">&lt; 上一篇</a>
+                <a title=" Word Search" href="/2024/04/16/Word-Search/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" 动态规划背包问题" href="/2024/04/09/动态规划背包问题/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
