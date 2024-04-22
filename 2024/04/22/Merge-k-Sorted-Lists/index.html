@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Convert Sorted Array to Binary Search Tree | ljz&#39;s Blog</title>
+  <title>Merge k Sorted Lists | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,16 +17,16 @@
   
     <meta name="keywords" content="Algorithm, LeetCode" />
   
-  <meta name="description" content="DescriptionGiven an integer array nums where the elements are sorted in ascending order, convert it to a  *height-balanced*  binary search tree. Example 1:  123Input: nums &#x3D; [-10,-3,0,5,9]Output: [0,-">
+  <meta name="description" content="DescriptionYou are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it. Example 1: 12345678910In">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Convert Sorted Array to Binary Search Tree">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/19/Convert-Sorted-Array-to-Binary-Search-Tree/index.html">
+<meta property="og:title" content="Merge k Sorted Lists">
+<meta property="og:url" content="https://pure-master.github.io/2024/04/22/Merge-k-Sorted-Lists/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="DescriptionGiven an integer array nums where the elements are sorted in ascending order, convert it to a  *height-balanced*  binary search tree. Example 1:  123Input: nums &#x3D; [-10,-3,0,5,9]Output: [0,-">
+<meta property="og:description" content="DescriptionYou are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it. Example 1: 12345678910In">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-19T13:45:37.000Z">
-<meta property="article:modified_time" content="2024-04-19T14:45:04.953Z">
+<meta property="article:published_time" content="2024-04-22T10:22:02.000Z">
+<meta property="article:modified_time" content="2024-04-22T12:47:54.373Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Algorithm">
@@ -197,15 +197,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/19/Convert-Sorted-Array-to-Binary-Search-Tree/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/22/Merge-k-Sorted-Lists/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Convert Sorted Array to Binary Search Tree</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Merge k Sorted Lists</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-19T13:45:37.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-19</time></li>
+                <li><time datetime="2024-04-22T10:22:02.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-22</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -214,7 +214,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1495
+                            ~2.29K
                         
                         字
                     </li>
@@ -226,37 +226,56 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1713537904953"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1713790074373"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-number">2.2.</span> <span class="toc-text">代码讲解</span></a></li></ol></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an integer array <code>nums</code> where the elements are sorted in <strong>ascending order</strong>, convert <em>it to a</em> </p>
-<p>*<strong>height-balanced*</strong></p>
-<p> <em>binary search tree</em>.</p>
+            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>
+<p><em>Merge all the linked-lists into one sorted linked-list and return it.</em></p>
 <p><strong>Example 1:</strong></p>
-<p><img src="/images/Convert-Sorted-Array-to-Binary-Search-Tree-1.jpg" alt="Example 1"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [-10,-3,0,5,9]</span><br><span class="line">Output: [0,-3,9,-10,null,5]</span><br><span class="line">Explanation: [0,-10,5,null,-3,null,9] is also accepted:</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input: lists = [[1,4,5],[1,3,4],[2,6]]</span><br><span class="line">Output: [1,1,2,3,4,4,5,6]</span><br><span class="line">Explanation: The linked-lists are:</span><br><span class="line">[</span><br><span class="line">  1-&gt;4-&gt;5,</span><br><span class="line">  1-&gt;3-&gt;4,</span><br><span class="line">  2-&gt;6</span><br><span class="line">]</span><br><span class="line">merging them into one sorted list:</span><br><span class="line">1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<p><img src="/images/Convert-Sorted-Array-to-Binary-Search-Tree-2.jpg" alt="Example 2"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,3]</span><br><span class="line">Output: [3,1]</span><br><span class="line">Explanation: [1,null,3] and [3,1] are both height-balanced BSTs.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: lists = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: lists = [[]]</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>1 &lt;= nums.length &lt;= 104</code></li>
-<li><code>-104 &lt;= nums[i] &lt;= 104</code></li>
-<li><code>nums</code> is sorted in a <strong>strictly increasing</strong> order.</li>
+<li><code>k == lists.length</code></li>
+<li><code>0 &lt;= k &lt;= 104</code></li>
+<li><code>0 &lt;= lists[i].length &lt;= 500</code></li>
+<li><code>-104 &lt;= lists[i][j] &lt;= 104</code></li>
+<li><code>lists[i]</code> is sorted in <strong>ascending order</strong>.</li>
+<li>The sum of <code>lists[i].length</code> will not exceed <code>104</code>.</li>
 </ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>分而治之</p>
-<p>因为列表是有序的，所以可以直接取中点来确定根节点，然后递归得到左右子树的根节点</p>
-<p>其中因为下标为<code>mid</code>的节点为当前根节点，所以如果左右下标和<code>mid</code>相同应该设置为<code>nullptr</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">sortedArrayToBST</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">fun</span>(nums,<span class="number">0</span>,nums.<span class="built_in">size</span>()<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">fun</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums,<span class="type">int</span> left,<span class="type">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> mid=(left+right)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        TreeNode* node=<span class="keyword">new</span> <span class="built_in">TreeNode</span>(nums[mid]);</span><br><span class="line">        node-&gt;left=mid==left?<span class="literal">nullptr</span>:<span class="built_in">fun</span>(nums,left,mid<span class="number">-1</span>);</span><br><span class="line">        node-&gt;right=mid==right?<span class="literal">nullptr</span>:<span class="built_in">fun</span>(nums,mid+<span class="number">1</span>,right);</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>有两种思路</p>
+<ul>
+<li>每两个链表一对将其合并，以减少链表的条数，最终缩减为一条即为最终所求</li>
+<li>同时合并多条链表,选取其中非空链表中的未合并的元素中的最小值作为合并链表的下一个节点，依次插入</li>
+</ul>
+<p>算法优化的核心在于<strong>降低选取最小元素时的复杂度</strong></p>
+<ul>
+<li>如果是常规思路，需要遍历所有链表剩余的头节点，选取其中的最小值，算法复杂度为<code>O(n)</code></li>
+<li>可以发现每次遍历选取最小值后只删去一个元素，添加一个元素，原来的元素顺序还基本保持不变，我们只需在原来顺序的基础上删去元素，插入新元素即可，对于顺序的记录，可以使用一个堆来实现，插入只需要<code>O(logn)</code>的时间复杂度，而<code>c++</code>和<code>java</code>中的优先队列底层便是使用了堆的数据结构</li>
+</ul>
+<h3 id="代码讲解"><a href="#代码讲解" class="headerlink" title="代码讲解"></a>代码讲解</h3><p><code>c++</code>中有重载运算符的用法，介于原链表数据结构不可变，新建了一个<code>Status</code>结构体来实现</p>
+<p>优先队列通过<code>&lt;</code>来对元素进行排序，因此重载了比较运算符</p>
+<p>将链表的头部依次插入优先队列，每次选取优先队列头部作为合并链表后继，并将原队列头节点后移作为新插入元素，新插入的元素又会进行排序，保证每次插入合并队列的都是剩余队列中的最小值，以实现合并</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    ListNode *next;</span><br><span class="line">    <span class="built_in">ListNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="type">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="type">int</span> x, ListNode *next) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(next) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Status</span> &#123;</span><br><span class="line">        <span class="type">int</span> val;</span><br><span class="line">        ListNode *ptr;</span><br><span class="line">        <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> Status &amp;rhs) <span class="type">const</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> val &gt; rhs.val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    priority_queue &lt;Status&gt; q;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(vector&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> node: lists) &#123;</span><br><span class="line">            <span class="keyword">if</span> (node) q.<span class="built_in">push</span>(&#123;node-&gt;val, node&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode head, *tail = &amp;head;</span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> f = q.<span class="built_in">top</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">            tail-&gt;next = f.ptr; </span><br><span class="line">            tail = tail-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (f.ptr-&gt;next) q.<span class="built_in">push</span>(&#123;f.ptr-&gt;next-&gt;val, f.ptr-&gt;next&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>时间复杂度：<code>O(kn*logk)</code></p>
+<p>空间复杂度：<code>O(k)</code></p>
+<p>其中<code>k</code>为链表条数，<code>kn</code>为总元素个数</p>
 </div>
         </div>
         
@@ -310,7 +329,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/19/Convert-Sorted-Array-to-Binary-Search-Tree/",
+                text: "https://pure-master.github.io/2024/04/22/Merge-k-Sorted-Lists/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -322,10 +341,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/19/Convert-Sorted-Array-to-Binary-Search-Tree/";
-            const title         = "「Convert Sorted Array to Binary Search Tree」";
-            const excerpt       = `DescriptionGiven an integer array nums where the elements are sorted in ascending order, convert it to a 
-*height-bal...`;
+            const hostUrl       = "https://pure-master.github.io/2024/04/22/Merge-k-Sorted-Lists/";
+            const title         = "「Merge k Sorted Lists」";
+            const excerpt       = `DescriptionYou are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+Merge all t...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -347,7 +366,7 @@
                     <a class="tag-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-19T14:45:04.953Z" itemprop="dateModified">最后编辑：2024-04-19</time>
+                    <time datetime="2024-04-22T12:47:54.373Z" itemprop="dateModified">最后编辑：2024-04-22</time>
                 </div>
             </div>
         </footer>
@@ -356,13 +375,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Generate Parentheses" href="/2024/04/17/Generate-Parentheses/">&lt; 上一篇</a>
+                <a title=" Construct Quad Tree" href="/2024/04/21/Construct-Quad-Tree/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Sort List" href="/2024/04/20/Sort-List/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -430,7 +445,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-text">代码讲解</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
