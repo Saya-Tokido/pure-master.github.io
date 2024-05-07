@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Best Time to Buy and Sell Stock with Cooldown | ljz&#39;s Blog</title>
+  <title>Search a 2D Matrix | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,16 +17,16 @@
   
     <meta name="keywords" content="Algorithm, LeetCode" />
   
-  <meta name="description" content="DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day. Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e.,">
+  <meta name="description" content="DescriptionYou are given an m x n integer matrix matrix with the following two properties:  Each row is sorted in non-decreasing order. The first integer of each row is greater than the last integer o">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Best Time to Buy and Sell Stock with Cooldown">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/index.html">
+<meta property="og:title" content="Search a 2D Matrix">
+<meta property="og:url" content="https://pure-master.github.io/2024/05/07/Search-a-2D-Matrix/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day. Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e.,">
+<meta property="og:description" content="DescriptionYou are given an m x n integer matrix matrix with the following two properties:  Each row is sorted in non-decreasing order. The first integer of each row is greater than the last integer o">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-12T09:54:10.000Z">
-<meta property="article:modified_time" content="2024-04-19T13:55:59.628Z">
+<meta property="article:published_time" content="2024-05-07T12:06:44.000Z">
+<meta property="article:modified_time" content="2024-05-07T12:06:44.044Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Algorithm">
@@ -204,15 +204,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/05/07/Search-a-2D-Matrix/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Best Time to Buy and Sell Stock with Cooldown</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Search a 2D Matrix</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-12T09:54:10.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-12</time></li>
+                <li><time datetime="2024-05-07T12:06:44.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-05-07</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -221,7 +221,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.82K
+                            ~2.38K
                         
                         字
                     </li>
@@ -233,67 +233,67 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1713534959628"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1715083604044"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#analysis"><span class="toc-number">2.1.</span> <span class="toc-text">analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion"><span class="toc-number">2.2.</span> <span class="toc-text">conclusion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-number">2.3.</span> <span class="toc-text">code</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution1"><span class="toc-number">2.</span> <span class="toc-text">Solution1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-number">2.2.</span> <span class="toc-text">代码讲解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution2"><span class="toc-number">3.</span> <span class="toc-text">Solution2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90-1"><span class="toc-number">3.1.</span> <span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3-1"><span class="toc-number">3.2.</span> <span class="toc-text">代码讲解</span></a></li></ol></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>ith</code> day.</p>
-<p>Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times) with the following restrictions:</p>
+            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an <code>m x n</code> integer matrix <code>matrix</code> with the following two properties:</p>
 <ul>
-<li>After you sell your stock, you cannot buy stock on the next day (i.e., cooldown one day).</li>
+<li>Each row is sorted in non-decreasing order.</li>
+<li>The first integer of each row is greater than the last integer of the previous row.</li>
 </ul>
-<p><strong>Note:</strong> You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).</p>
+<p>Given an integer <code>target</code>, return <code>true</code> <em>if</em> <code>target</code> <em>is in</em> <code>matrix</code> <em>or</em> <code>false</code> <em>otherwise</em>.</p>
+<p>You must write a solution in <code>O(log(m * n))</code> time complexity.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [1,2,3,0,2]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: transactions = [buy, sell, cooldown, buy, sell]</span><br></pre></td></tr></table></figure>
+<p><img src="/images/image-20240507195000000.jpg" alt="example 1"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [1]</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+<p><img src="/images/image-20240507195000000.jpg" alt="example 2"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>1 &lt;= prices.length &lt;= 5000</code></li>
-<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
+<li><code>m == matrix.length</code></li>
+<li><code>n == matrix[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 100</code></li>
+<li><code>-104 &lt;= matrix[i][j], target &lt;= 104</code></li>
 </ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h3><p>可以尝试使用动态规划解决</p>
-<p>存在三种状态：</p>
-<ul>
-<li>手中持有股票</li>
-<li>处于冷冻期</li>
-<li>手中不持有股票且不处于冷冻期</li>
-</ul>
-<p>分别将以上三种状态标记为<code>hold</code> <code>freeze</code> <code>not</code>,最大余额为<code>f0</code> <code>f1</code> <code>f2</code></p>
-<ul>
-<li><p>对于<code>hold</code>状态，有两种情况：目前持有股票和目前未持有股票</p>
-<ul>
-<li>对于目前持有股票，无须操作，余额仍为<code>f0</code></li>
-<li>对于目前未持有股票，要达到<code>hold</code>状态需要购买当天股票，那么前一天的状态必须是<code>hold</code>，由此余额为<code>f2-prices[i]</code></li>
-</ul>
-<p>由此可以得到状态<code>hold</code>收益的最大值为<code>max(f0,f2-prices[i])</code></p>
-</li>
-<li><p>对于<code>cold</code>状态只有一种情况：前一天状态为<code>hold</code>，当天卖出了股票，收益为<code>f0+prices[i]</code></p>
-<p>因此<code>cold</code>状态的最大收益为<code>f0+prices[i]</code></p>
-</li>
-<li><p>对于<code>not</code>状态有两种情况：前一天是状态为<code>not</code>、前一天状态为<code>cold</code></p>
-<ul>
-<li>对于前一天状态为<code>not</code>，无需操作，余额仍为<code>f2</code></li>
-<li>对于前一天状态为<code>cold</code>，余额为前一天的<code>cold</code>状态的余额，即<code>f1</code></li>
-</ul>
-<p>由此可以得到状态<code>not</code>的取得收益的最大值为<code>max(f1,f2)</code></p>
-</li>
-</ul>
-<p>最后结束天要想得到收益最大值有两种情况：当天卖出股票处于冷冻期<code>cold</code>和当前未持有股票且不处于冷冻状态<code>not</code>，取两者最大值即可<code>max(f1,f2)</code></p>
-<h3 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h3><p>对于本题来说，采用暴力算法需要将尝试每一天的<code>hold</code> <code>cold</code> <code>not</code>的可能情况</p>
-<p>而动态规划记录了三种状态在某一天收益最大值的可能性，而不是一味记录所有可能的收入情况，极大减少了重复计算量</p>
-<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        int n=prices.size();</span><br><span class="line">        int f0=-prices[0],f1=0,f2=0;</span><br><span class="line">        for(int i=1;i&lt;n;i++)&#123;</span><br><span class="line">            tmp_f0=max(f0,f2-prices[i]);</span><br><span class="line">            tmp_f1=f0+prices[i];</span><br><span class="line">            tmp_f2=max(f1,f2);</span><br><span class="line">            f0=tmp_f0;</span><br><span class="line">            f1=tmp_f1;</span><br><span class="line">            f2=tmp_f2;</span><br><span class="line">        &#125;</span><br><span class="line">        return max(f1,f2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution1"><a href="#Solution1" class="headerlink" title="Solution1"></a>Solution1</h2><h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>两次二分查找</p>
+<p>首先确定行再确定列</p>
+<h3 id="代码讲解"><a href="#代码讲解" class="headerlink" title="代码讲解"></a>代码讲解</h3><p><code>upper_bound</code>是cpp STL中的函数，用于在已排序的区间中查找第一个大于某个值的元素的位置</p>
+<p>lambda 表达式 <code>[](const int b, const vector&lt;int&gt; &amp;a) &#123; return b &lt; a[0]; &#125;</code> 是用作比较函数。这个 lambda 表达式接收两个参数：<code>b</code> 是我们要查找的目标值 <code>target</code>，<code>a</code> 是二维矩阵的每一行。lambda 表达式返回 <code>true</code> 表示第一个参数小于当前行的第一个元素，否则返回 <code>false</code>。这样做的目的是让 <code>std::upper_bound</code> 函数根据每行的第一个元素进行比较。</p>
+<p>如果找出来第一行元素大于<code>target</code>(即<code>row==matrix.begin()</code>)，说明target比矩阵中所有元素都小，返回<code>false</code></p>
+<p>如果<code>row==matrix.end()</code>说明两种可能</p>
+<ol>
+<li><code>target</code>在最后一行元素的范围中</li>
+<li><code>target</code>比所有元素都要大</li>
+</ol>
+<p>二分查找可以同时解决两种可能</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">searchMatrix</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; matrix, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> row = <span class="built_in">upper_bound</span>(matrix.<span class="built_in">begin</span>(), matrix.<span class="built_in">end</span>(), target, [](<span class="type">const</span> <span class="type">int</span> b, <span class="type">const</span> vector&lt;<span class="type">int</span>&gt; &amp;a) &#123;</span><br><span class="line">            <span class="keyword">return</span> b &lt; a[<span class="number">0</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">if</span> (row == matrix.<span class="built_in">begin</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        --row;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">binary_search</span>(row-&gt;<span class="built_in">begin</span>(), row-&gt;<span class="built_in">end</span>(), target);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
 
+
+
+
+
+
+
+
+
+<h2 id="Solution2"><a href="#Solution2" class="headerlink" title="Solution2"></a>Solution2</h2><h3 id="思路分析-1"><a href="#思路分析-1" class="headerlink" title="思路分析"></a>思路分析</h3><p>一次二分查找</p>
+<p>将矩阵扁平化</p>
+<h3 id="代码讲解-1"><a href="#代码讲解-1" class="headerlink" title="代码讲解"></a>代码讲解</h3><p>矩阵扁平化后，<code>l</code> 为矩阵最小值的下标<code>r</code>为矩阵最大值的下标</p>
+<p><code>int row=mid/n;</code><br><code>int col=mid%n;</code></p>
+<p>以上两个式子可以模拟矩阵扁平化求出对应行列下标</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">searchMatrix</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; matrix, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m=matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> n=matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> r=m*n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">            <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> row=mid/n;</span><br><span class="line">            <span class="type">int</span> col=mid%n;</span><br><span class="line">            <span class="keyword">if</span>(matrix[row][col]&lt;target)&#123;</span><br><span class="line">                l=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(matrix[row][col]&gt;target)&#123;</span><br><span class="line">                r=mid<span class="number">-1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </div>
         </div>
         
@@ -347,7 +347,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/",
+                text: "https://pure-master.github.io/2024/05/07/Search-a-2D-Matrix/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -359,10 +359,11 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/";
-            const title         = "「Best Time to Buy and Sell Stock with Cooldown」";
-            const excerpt       = `DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day.
-Find the maxim...`;
+            const hostUrl       = "https://pure-master.github.io/2024/05/07/Search-a-2D-Matrix/";
+            const title         = "「Search a 2D Matrix」";
+            const excerpt       = `DescriptionYou are given an m x n integer matrix matrix with the following two properties:
+
+Each row is sorted in non...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -384,7 +385,7 @@ Find the maxim...`;
                     <a class="tag-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-19T13:55:59.628Z" itemprop="dateModified">最后编辑：2024-04-19</time>
+                    <time datetime="2024-05-07T12:06:44.044Z" itemprop="dateModified">最后编辑：2024-05-07</time>
                 </div>
             </div>
         </footer>
@@ -393,12 +394,12 @@ Find the maxim...`;
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Linux expand disk" href="/2024/04/11/Linux-expand-disk/">&lt; 上一篇</a>
+                <a title=" TCP Details" href="/2024/05/05/TCP-Details/">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" Word Search" href="/2024/04/16/Word-Search/">下一篇 &gt;</a>
+                <a title=" All forms of string case conversion" href="/2024/05/07/All-forms-of-string-case-conversion/">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -467,7 +468,7 @@ Find the maxim...`;
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#analysis"><span class="toc-text">analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion"><span class="toc-text">conclusion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-text">code</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution1"><span class="toc-text">Solution1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-text">代码讲解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution2"><span class="toc-text">Solution2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90-1"><span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3-1"><span class="toc-text">代码讲解</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
